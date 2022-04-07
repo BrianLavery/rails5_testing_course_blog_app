@@ -10,11 +10,32 @@
   </head>
 
   <body>
-    <% flash.each do |key, message| %>
-      <div class="text-center alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
-        <%= message %>
-      </div>
-    <% end %>
-    <%= yield %>
+    <header role="banner">
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <%= link_to "Blog App", root_path, class: "navbar-brand" %>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                <%= link_to "Authors", "#", class: "nav-link" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <% flash.each do |key, message| %>
+        <div class="text-center alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
+          <%= message %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
