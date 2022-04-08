@@ -2,7 +2,7 @@
 @import "bootstrap/scss/bootstrap";
 
 body {
-  padding-top: 80px;
+  padding-top: 100px;
   background: #E1E1E1;
   color: #64103F;
 }
@@ -10,14 +10,14 @@ body {
 // Navbar styling
 .navbar {
  background: #64103F;
- padding-bottom: 20px;
+ padding-bottom: 8px;
  position: fixed !important;
  width: 100%;
  top: 0px;
 }
 
 .navbar-default .navbar-brand {
-  padding-top: 25px;
+  padding-top: 8px;
   font-size: 150%;
   font-weight: bold;
   color: #ffffff;
@@ -32,8 +32,8 @@ body {
 }
 
 .navbar-nav {
-  padding-top: 10px;
-  padding-right: 20px;
+  padding-top: 8px;
+  padding-right: 16px;
 }
 
 .navbar-default .navbar-nav li > a {
