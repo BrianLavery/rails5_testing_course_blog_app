@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :find_article, only: [:show, :edit, :update]
+
   def index
     @articles = Article.all
   end
@@ -19,8 +21,19 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show
-    @article = Article.find(params[:id])
+  def show; end
+
+  def edit; end
+
+  def update
+    if @article.update(article_params)
+      flash[:success] = "Article has been updated"
+      redirect_to article_path(@article)
+    else
+      # We add flash.now to prevent this flash being held in the queue (given we render not redirect)
+      flash.now[:danger] = "Article has not been updated"
+      render :edit
+    end
   end
 
   protected
@@ -36,4 +49,9 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :body)
   end
+
+  def find_article
+    @article = Article.find(params[:id])
+  end
+
 end
