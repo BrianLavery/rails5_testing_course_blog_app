@@ -4,4 +4,5 @@ class Article < ApplicationRecord
   default_scope { order(created_at: :desc) } # Default order will be latest created
 
   belongs_to :user
+  has_many :comments, dependent: :destroy
 end
